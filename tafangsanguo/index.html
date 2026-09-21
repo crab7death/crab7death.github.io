@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>塔防三国志官网-策略战争手游与英雄养成攻略</title>
+    <meta name="description" content="塔防三国志官网提供游戏下载、英雄图鉴、关卡攻略、资源获取及最新活动资讯。体验经典策略塔防玩法，招募名将，布阵防守，守护三国的策略手游平台。">
+    <meta name="keywords" content="塔防三国志,塔防三国志官网,塔防三国志下载,塔防三国志攻略,三国塔防手游">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8b0000;
+            --secondary-color: #f4a460;
+            --accent-color: #ffd700;
+            --dark-bg: #1a1a1a;
+            --card-bg: #2c2c2c;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), #5c0000);
+            color: white;
+            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 0, 0, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary-color);
+            color: var(--dark-bg);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(20, 20, 20, 0.95);
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--dark-bg)), url('https://picsum.photos/seed/sanguo_hero/1920/1080.jpg') no-repeat center center/cover;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+            letter-spacing: 2px;
+        }
+
+        .hero h1 span {
+            color: var(--secondary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #ddd;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Game Features */
+        .features {
+            padding: 80px 0;
+            background-color: var(--dark-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+            border-top: 3px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-top-color: var(--secondary-color);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+        }
+
+        /* Character Showcase */
+        .characters {
+            padding: 80px 0;
+            background-color: #222;
+        }
+
+        .char-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .char-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .char-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .char-card:hover .char-img {
+            transform: scale(1.1);
+        }
+
+        .char-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .char-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .char-role {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        /* Strategy Guide */
+        .guide-section {
+            padding: 80px 0;
+        }
+
+        .guide-container {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .guide-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .guide-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .guide-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .guide-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .guide-list li::before {
+            content: '⚔️';
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        .guide-list h3 {
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            padding: 60px 0 20px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            nav {
+                margin: 15px 0;
+                width: 100%;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .guide-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">塔防<span>三国志</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">游戏下载</a></li>
+                    <li><a href="#">英雄图鉴</a></li>
+                    <li><a href="#">关卡攻略</a></li>
+                    <li><a href="#">活动中心</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>智御天下，<span>一统三国</span></h1>
+                <p>经典策略塔防手游回归！招募五虎上将，布阵千军万马，在乱世中守护一方疆土。</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">立即下载游戏</a>
+                    <a href="#" class="btn btn-outline">观看宣传片</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>游戏特色</h2>
+                    <p>融合策略与RPG元素的深度玩法</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏰</div>
+                        <h3>经典塔防</h3>
+                        <p>重绘经典关卡，延续策略乐趣，体验最纯粹的塔防战斗。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚔️</div>
+                        <h3>英雄养成</h3>
+                        <p>收集关羽、张飞等历史名将，升级装备，打造专属最强军团。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚔️</div>
+                        <h3>策略布阵</h3>
+                        <p>合理利用兵种克制、阵型站位，智取敌军，轻松通关难关。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3>跨服争霸</h3>
+                        <p>与全国玩家同台竞技，争夺霸主荣耀，体验热血PVP。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Character Showcase -->
+        <section class="characters">
+            <div class="container">
+                <div class="section-title">
+                    <h2>英雄图鉴</h2>
+                    <p>招募历史名将，组建你的无双战队</p>
+                </div>
+                <div class="char-grid">
+                    <div class="char-card">
+                        <img src="https://picsum.photos/seed/guanyu/400/500" alt="关羽" class="char-img">
+                        <div class="char-info">
+                            <div class="char-name">关羽</div>
+                            <div class="char-role">武力：S | 速度：A</div>
+                        </div>
+                    </div>
+                    <div class="char-card">
+                        <img src="https://picsum.photos/seed/zhangfei/400/500" alt="张飞" class="char-img">
+                        <div class="char-info">
+                            <div class="char-name">张飞</div>
+                            <div class="char-role">武力：S | 防御：A</div>
+                        </div>
+                    </div>
+                    <div class="char-card">
+                        <img src="https://picsum.photos/seed/zhugeliang/400/500" alt="诸葛亮" class="char-img">
+                        <div class="char-info">
+                            <div class="char-name">诸葛亮</div>
+                            <div class="char-role">智力：S | 控制：S</div>
+                        </div>
+                    </div>
+                    <div class="char-card">
+                        <img src="https://picsum.photos/seed/caocao/400/500" alt="曹操" class="char-img">
+                        <div class="char-info">
+                            <div class="char-name">曹操</div>
+                            <div class="char-role">统率：S | 狡诈：A</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategy Guide -->
+        <section class="guide-section">
+            <div class="container guide-container">
+                <div class="guide-content">
+                    <h3>新手入门与进阶攻略</h3>
+                    <p style="margin-bottom: 25px; color: #ccc;">想要在塔防三国志中快速成长？掌握以下核心玩法，助你轻松通关。</p>
+                    <ul class="guide-list">
+                        <li>
+                            <h4>资源管理优先</h4>
+                            <p style="color: #999; font-size: 0.9rem;">初期合理分配金币与粮草，优先升级主城以解锁更多功能。</p>
+                        </li>
+                        <li>
+                            <h4>兵种搭配技巧</h4>
+                            <p style="color: #999; font-size: 0.9rem;">弓兵克制骑兵，骑兵克制步兵，在关卡中灵活切换兵种。</p>
+                        </li>
+                        <li>
+                            <h4>英雄技能释放</h4>
+                            <p style="color: #999; font-size: 0.9rem;">注意技能冷却时间，在敌人密集时释放范围技能，事半功倍。</p>
+                        </li>
+                        <li>
+                            <h4>每日任务必做</h4>
+                            <p style="color: #999; font-size: 0.9rem;">完成每日登录、试炼塔等任务，获取大量稀有道具。</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="guide-image">
+                    <img src="https://picsum.photos/seed/game_map/800/600" alt="游戏地图与战斗场景">
+                </div>
+            </div>
+        </section>
+
+        <!-- Download CTA -->
+        <section style="background: linear-gradient(to right, #8b0000, #5c0000); padding: 80px 0; text-align: center;">
+            <div class="container">
+                <h2 style="color: white; margin-bottom: 20px; font-size: 2rem;">开启你的三国征战之旅</h2>
+                <p style="color: #ffd700; margin-bottom: 30px; font-size: 1.1rem;">安全下载 · 无病毒 · 极速体验</p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <button class="btn btn-primary" style="background-color: white; color: var(--primary-color); padding: 15px 40px; font-size: 1.1rem;">iOS 下载</button>
+                    <button class="btn btn-primary" style="background-color: white; color: var(--primary-color); padding: 15px 40px; font-size: 1.1rem;">Android 下载</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于游戏</h4>
+                    <ul>
+                        <li><a href="#">游戏简介</a></li>
+                        <li><a href="#">开发团队</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>玩家服务</h4>
+                    <ul>
+                        <li><a href="#">账号安全</a></li>
+                        <li><a href="#">充值中心</a></li>
+                        <li><a href="#">客服中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>游戏资讯</h4>
+                    <ul>
+                        <li><a href="#">官方公告</a></li>
+                        <li><a href="#">版本更新</a></li>
+                        <li><a href="#">活动预告</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <p style="color: #999; font-size: 0.9rem;">获取最新游戏动态与福利</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 塔防三国志运营团队 版权所有</p>
+                <p style="font-size: 0.8rem; margin-top: 5px;">本游戏适合16岁以上玩家使用，请理性消费。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
