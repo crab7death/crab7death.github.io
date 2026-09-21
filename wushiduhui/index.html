@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="五十度灰网盘提供安全、高速的网盘资源存储与共享服务，支持大文件传输、在线预览及多端同步，满足个人及企业级数据管理需求。">
+    <meta name="keywords" content="五十度灰网盘,云存储,网盘下载,文件共享,在线预览">
+    <title>五十度灰网盘-高速安全云存储与文件共享平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e50914;
+            --primary-hover: #b20710;
+            --bg-color: #141414;
+            --card-bg: #1f1f1f;
+            --text-main: #ffffff;
+            --text-secondary: #b3b3b3;
+            --border-color: #333;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(20, 20, 20, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(229,9,20,0.1) 0%, rgba(20,20,20,0) 100%);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item h3 {
+            font-size: 24px;
+            color: var(--text-main);
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Features Section */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            align-items: start;
+        }
+
+        .pricing-card {
+            background-color: var(--card-bg);
+            padding: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .pricing-card.popular {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 20px rgba(229, 9, 20, 0.1);
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            right: 24px;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .price span {
+            font-size: 16px;
+            color: var(--text-secondary);
+            font-weight: normal;
+        }
+
+        .price-features li {
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .price-features li::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 16px;
+        }
+
+        .faq-question {
+            padding: 20px 0;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 24px;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            padding-bottom: 20px;
+            display: none;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            padding: 60px 0 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            nav {
+                display: none; /* Simplified for mobile */
+            }
+
+            .header-actions {
+                display: none;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+                </svg>
+                <span>五十度灰网盘</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#features">功能特色</a></li>
+                    <li><a href="#pricing">会员价格</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">注册</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>您的私人云端数据管家</h1>
+                <p>安全、极速、智能的文件存储与共享解决方案。无论是工作文档、个人照片还是大型视频，五十度灰网盘都能为您提供无忧的存储体验。</p>
+                <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 40px;">
+                    <button class="btn btn-primary" style="padding: 12px 32px; font-size: 16px;">免费注册</button>
+                    <button class="btn btn-outline" style="padding: 12px 32px; font-size: 16px;">下载客户端</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>10TB+</h3>
+                        <p>安全存储空间</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>99.9%</h3>
+                        <p>数据可用性</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>1000万+</h3>
+                        <p>活跃用户</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">为什么选择五十度灰网盘？</h2>
+                    <p class="section-desc">为个人和企业用户量身打造的云端存储服务，注重安全性与传输效率。</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>端到端加密</h3>
+                        <p>采用军用级AES-256加密技术，确保您的文件在传输和存储过程中绝对安全，只有您拥有解密密钥。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>极速上传下载</h3>
+                        <p>智能多线程加速技术，结合全球CDN节点，大幅提升文件传输速度，告别漫长的等待。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>全平台同步</h3>
+                        <p>支持Windows、Mac、iOS、Android及Web端，实现多设备文件实时同步，随时随地访问您的数据。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👁️</div>
+                        <h3>在线预览</h3>
+                        <p>无需下载，即可在浏览器中预览文档、图片、音视频等多种格式，办公协作更高效。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔗</div>
+                        <h3>安全共享</h3>
+                        <p>生成安全分享链接，设置访问密码和有效期，有效控制文件传播范围。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>数据备份</h3>
+                        <p>提供自动备份功能，防止误删或设备损坏导致的数据丢失，守护您的数字资产。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="section" style="background-color: #181818;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">灵活的存储套餐</h2>
+                    <p class="section-desc">根据您的需求选择最合适的方案，支持随时升级或降级。</p>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>基础版</h3>
+                        <div class="price">免费 <span>/ 永久</span></div>
+                        <ul class="price-features">
+                            <li>10GB 存储空间</li>
+                            <li>单文件最大 2GB</li>
+                            <li>基础文件预览</li>
+                            <li>普通上传速度</li>
+                        </ul>
+                        <button class="btn btn-outline" style="width: 100%; margin-top: 24px;">立即使用</button>
+                    </div>
+                    <div class="pricing-card popular">
+                        <div class="badge">最受欢迎</div>
+                        <h3>专业版</h3>
+                        <div class="price">¥9.9 <span>/ 月</span></div>
+                        <ul class="price-features">
+                            <li>2TB 存储空间</li>
+                            <li>单文件最大 10GB</li>
+                            <li>高清在线预览</li>
+                            <li>高速上传下载</li>
+                            <li>优先技术支持</li>
+                        </ul>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 24px;">升级专业版</button>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>企业版</h3>
+                        <div class="price">定制 <span>/ 年</span></div>
+                        <ul class="price-features">
+                            <li>无限存储空间</li>
+                            <li>无限单文件大小</li>
+                            <li>私有云部署选项</li>
+                            <li>SSO 单点登录</li>
+                            <li>专属客户经理</li>
+                        </ul>
+                        <button class="btn btn-outline" style="width: 100%; margin-top: 24px;">联系销售</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">常见问题</h2>
+                    <p class="section-desc">关于五十度灰网盘的使用疑问解答。</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">注册需要提供手机号吗？</div>
+                        <div class="faq-answer">是的，为了保障账户安全，注册五十度灰网盘需要绑定有效的手机号码进行验证。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">免费用户的空间可以升级吗？</div>
+                        <div class="faq-answer">可以。您可以通过邀请好友、参与活动或购买会员来增加您的存储空间。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">我的文件会被用于广告推广吗？</div>
+                        <div class="faq-answer">绝对不会。我们严格遵守隐私政策，承诺不收集、不分析、不利用用户的个人文件数据进行任何商业用途。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何恢复误删的文件？</div>
+                        <div class="faq-answer">在回收站中，文件通常可以保存30天。请及时登录网页端或客户端查看回收站并进行恢复操作。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于五十度灰网盘</h4>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">媒体报道</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>产品服务</h4>
+                    <ul>
+                        <li><a href="#">网盘客户端</a></li>
+                        <li><a href="#">API 接口文档</a></li>
+                        <li><a href="#">企业解决方案</a></li>
+                        <li><a href="#">开发者社区</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">使用教程</a></li>
+                        <li><a href="#">安全指南</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">官方论坛</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 五十度灰网盘 版权所有 | 京ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 切换逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
