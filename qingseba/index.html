@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="青色吧是一个专注于高质量图片素材分享与交流的社区平台。在这里您可以找到最新的青色系摄影作品、设计灵感以及实用的后期调色教程，是设计师和摄影师的灵感源泉。">
+    <meta name="keywords" content="青色吧,青色系,图片素材,摄影作品,设计灵感,调色教程">
+    <title>青色吧-精选青色系图片素材与设计灵感分享平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #008080; /* 青色 */
+            --primary-dark: #006666;
+            --accent-color: #00bfa5;
+            --bg-body: #f4f7f6;
+            --bg-card: #ffffff;
+            --text-main: #2c3e50;
+            --text-light: #7f8c8d;
+            --spacing-unit: 8px;
+            --container-width: 1200px;
+            --radius-md: 8px;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 15px;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-actions button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(120deg, #e0f2f1 0%, #b2dfdb 100%);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            color: var(--primary-dark);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 分类导航 */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .cat-tag {
+            padding: 6px 16px;
+            background-color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--text-light);
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .cat-tag:hover, .cat-tag.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* 内容区域 */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-image {
+            height: 200px;
+            width: 100%;
+            background-color: #eee;
+        }
+
+        .card-content {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .card-footer {
+            padding: 12px 16px;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fafafa;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #ccc;
+        }
+
+        .btn-like {
+            color: #e74c3c;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* 特色功能区 */
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* 专题推荐 */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        .view-more {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            padding-top: 100%; /* 1:1 Aspect Ratio */
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 20px 12px 12px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            margin-top: 16px;
+            font-size: 14px;
+            color: #bdc3c7;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #34495e;
+            padding-top: 20px;
+            font-size: 13px;
+            color: #7f8c8d;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 12px 0;
+            }
+
+            nav ul {
+                margin: 12px 0;
+                gap: 16px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .features-section {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>青色吧</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">摄影作品</a></li>
+                    <li><a href="#">设计素材</a></li>
+                    <li><a href="#">调色教程</a></li>
+                    <li><a href="#">社区讨论</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button>上传作品</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>发现青色的无限可能</h1>
+                <p>汇集全网最优质的青色系摄影、插画与设计灵感。在这里，探索那一抹宁静而深邃的青色美学。</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="category-nav">
+                <span class="cat-tag active">全部</span>
+                <span class="cat-tag">风景摄影</span>
+                <span class="cat-tag">建筑外观</span>
+                <span class="cat-tag">人像修图</span>
+                <span class="cat-tag">扁平插画</span>
+                <span class="cat-tag">UI设计</span>
+                <span class="cat-tag">胶片模拟</span>
+            </div>
+
+            <section class="section-header">
+                <h2 class="section-title">本周热门推荐</h2>
+                <a href="#" class="view-more">查看更多 &rarr;</a>
+            </section>
+
+            <div class="content-grid">
+                <article class="card">
+                    <div class="card-image" style="background: linear-gradient(to bottom right, #80deea, #006064);">
+                        <!-- 占位图 -->
+                        <img src="https://picsum.photos/seed/cyan1/400/300" alt="青色系风景摄影" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">雨后森林的青色回响</h3>
+                        <div class="card-meta">
+                            <span>摄影作品</span>
+                            <span>2小时前</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="user-info">
+                            <img src="https://picsum.photos/seed/u1/50/50" class="avatar" alt="用户头像">
+                            <span>光影捕手</span>
+                        </div>
+                        <div class="btn-like">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M8 4.5a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 .5-.5z"/></svg>
+                            128
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-image" style="background: linear-gradient(to bottom right, #4dd0e1, #0097a7);">
+                        <img src="https://picsum.photos/seed/cyan2/400/300" alt="极简UI界面设计" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">现代金融APP界面设计</h3>
+                        <div class="card-meta">
+                            <span>UI设计</span>
+                            <span>5小时前</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="user-info">
+                            <img src="https://picsum.photos/seed/u2/50/50" class="avatar" alt="用户头像">
+                            <span>DesignPro</span>
+                        </div>
+                        <div class="btn-like">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M8 4.5a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 .5-.5z"/></svg>
+                            342
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-image" style="background: linear-gradient(to bottom right, #26c6da, #00838f);">
+                        <img src="https://picsum.photos/seed/cyan3/400/300" alt="赛博朋克风格插画" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">赛博朋克霓虹夜景</h3>
+                        <div class="card-meta">
+                            <span>插画艺术</span>
+                            <span>1天前</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="user-info">
+                            <img src="https://picsum.photos/seed/u3/50/50" class="avatar" alt="用户头像">
+                            <span>ArtFlow</span>
+                        </div>
+                        <div class="btn-like">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M8 4.5a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 .5-.5z"/></svg>
+                            856
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-image" style="background: linear-gradient(to bottom right, #00bcd4, #006064);">
+                        <img src="https://picsum.photos/seed/cyan4/400/300" alt="胶片调色效果" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">胶片感人像调色方案</h3>
+                        <div class="card-meta">
+                            <span>后期教程</span>
+                            <span>2天前</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="user-info">
+                            <img src="https://picsum.photos/seed/u4/50/50" class="avatar" alt="用户头像">
+                            <span>调色师</span>
+                        </div>
+                        <div class="btn-like">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M8 4.5a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 .5-.5z"/></svg>
+                            210
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <section class="features-section">
+            <div class="feature-box">
+                <div class="feature-icon">📷</div>
+                <h3 class="feature-title">海量素材库</h3>
+                <p class="feature-desc">收录超过10万张高清青色系图片，涵盖摄影、设计、艺术等领域，满足您的一切创作需求。</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">🎨</div>
+                <h3 class="feature-title">专业调色指南</h3>
+                <p class="feature-desc">分享最新的青色系调色预设与教程，助您轻松掌握色彩搭配技巧，提升作品质感。</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">🤝</div>
+                <h3 class="feature-title">设计师社区</h3>
+                <p class="feature-desc">与百万设计师、摄影师互动交流，获取反馈，寻找合作机会，共同进步。</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="section-header">
+                <h2 class="section-title">精选专题展示</h2>
+                <a href="#" class="view-more">查看专题 &rarr;</a>
+            </section>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/cyan5/400/400" alt="青色建筑">
+                    <div class="gallery-overlay">
+                        <h4>青色建筑</h4>
+                        <p>32张作品</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/cyan6/400/400" alt="极简桌面">
+                    <div class="gallery-overlay">
+                        <h4>极简桌面</h4>
+                        <p>18张作品</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/cyan7/400/400" alt="海洋世界">
+                    <div class="gallery-overlay">
+                        <h4>深海探索</h4>
+                        <p>45张作品</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/cyan8/400/400" alt="科技感">
+                    <div class="gallery-overlay">
+                        <h4>未来科技</h4>
+                        <p>21张作品</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span>青色吧</span>
+                    </a>
+                    <p>专注于青色系美学分享的在线社区，致力于为设计师和摄影爱好者提供灵感与资源。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">平台介绍</a></li>
+                        <li><a href="#">加入团队</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>内容分类</h4>
+                    <ul>
+                        <li><a href="#">摄影作品</a></li>
+                        <li><a href="#">设计素材</a></li>
+                        <li><a href="#">插画艺术</a></li>
+                        <li><a href="#">调色教程</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助支持</h4>
+                    <ul>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 青色吧 版权所有. 本站仅供展示使用，图片来源于网络。
+            </div>
+        </div>
+    </footer>
+
+</body>
+                              </html>
